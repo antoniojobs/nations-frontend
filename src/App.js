@@ -1,13 +1,13 @@
 import React from 'react';
-import {ApolloProvider} from "@apollo/react-hooks";
-import api from "./services/api";
+import Tabela from './components/Tb';
+// import Tabela2 from './components/Tabela';
+
 function App() {
   return (
-    <ApolloProvider client={api}>
-      <div className="App">
-        <h1>meu component</h1>
-      </div>
-    </ApolloProvider>
+    <>
+      <Tabela />
+      {/* <Tabela2 /> */}
+    </>
   );
 }
 

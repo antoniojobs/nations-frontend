@@ -1,14 +1,12 @@
-import React from 'react';
-import {useQuery} from "@apollo/react-hooks";
-import {gql} from "graphql-tag";
+import React, {useEffect} from 'react';
+// import { useQuery } from "@apollo/react-hooks";
+// import {gql} from "graphql-tag";
 
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
+import { Table, TableBody, TableCell,TableContainer } from '@material-ui/core';
+
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
@@ -23,10 +21,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
-
-
-
-
+import {useCountries} from './useCountries';
 
 
 function createData(name, calories, fat, carbs, protein) {
@@ -222,6 +217,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function EnhancedTable() {
+  const {data} = useCountries();
+  useEffect(() => {
+    console.log(data)
+  }, [data])
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');

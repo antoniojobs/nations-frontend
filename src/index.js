@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Tabela from './components/TabelaDoc';
+import {ApolloProvider} from "@apollo/react-hooks";
+import client from "./services/api";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Tabela />
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById('root')
 );
