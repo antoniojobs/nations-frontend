@@ -1,24 +1,9 @@
 import React, {useEffect} from 'react';
-// import { useQuery } from "@apollo/react-hooks";
-// import {gql} from "graphql-tag";
 
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
-import { Table, TableBody, TableCell,TableContainer } from '@material-ui/core';
-
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+import { Checkbox, IconButton,Tooltip, Table, Switch, FormControlLabel, TableBody, TableCell,TableContainer,TableHead, TablePagination, TableRow, TableSortLabel, Toolbar, Typography, Paper } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import {useCountries} from './useCountries';
@@ -214,13 +199,11 @@ const useStyles = makeStyles((theme) => ({
     top: 20,
     width: 1,
   },
-}));
+})
 
 export default function EnhancedTable() {
-  const {data} = useCountries();
-  useEffect(() => {
-    console.log(data)
-  }, [data])
+  const {countries} = useCountries();
+
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
